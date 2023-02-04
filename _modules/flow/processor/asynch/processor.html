@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flow.processor.asynch.processor &#8212; Flow</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Flow</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../intro.html">
+                    Flow
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../guides/index.html">
+   User guides
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/installing.html">
+     Installing flow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/writing-nodes.html">
+     Writing Flow Nodes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../guides/specifying-graphs.html">
+     Specifying graphs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../examples/index.html">
+   Examples
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../design/index.html">
+   Design
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../../design/processor.html">
+     Design of flow.processor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../../reference.html">
+   Programming reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../api/index.html">
+     API Reference
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../../api/flow/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flow
+        </span>
+       </code>
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/flow/lang/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           flow.lang
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/flow/model/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           flow.model
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/flow/processor/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           flow.processor
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../../api/flow/cli/index.html">
+         <code class="xref py py-mod docutils literal notranslate">
+          <span class="pre">
+           flow.cli
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../flow-parse-namespace.html">
+     Flow parse namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/parse/dataclass/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         parse.dataclass
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/parse/function/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         parse.function
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/parse/generator/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         parse.generator
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/parse/subclass/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         parse.subclass
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../../flow-lib-namespace.html">
+     Flow lib namespace
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/lib/arith/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         lib.arith
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/lib/audio/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         lib.audio
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/lib/gen/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         lib.gen
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/lib/out/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         lib.out
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../../api/lib/plot/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         lib.plot
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/enodis/python-flow"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/enodis/python-flow/issues/new?title=Issue%20on%20page%20%2F_modules/flow/processor/asynch/processor.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for flow.processor.asynch.processor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Execute the nodes of a data flow graph with dynamic event-driven system.</span>
+
+<span class="sd">Async execution of a data flow graph is useful when data is received, live,</span>
+<span class="sd">from external sources. In streaming execution the node cannot get the entire</span>
+<span class="sd">input data as the data may be continuous, so also the output data must be</span>
+<span class="sd">written piecemeal.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Iterable</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+    <span class="n">Set</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+
+<span class="kn">from</span> <span class="nn">flow.model</span> <span class="kn">import</span> <span class="n">IteratorRunner</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">StatefulRunner</span><span class="p">,</span> <span class="n">StatelessRunner</span><span class="p">,</span> <span class="n">PortSpec</span>
+<span class="kn">from</span> <span class="nn">flow.processor.asynch.channelqueue</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">QueueClosedError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">flow.processor.asynch.channelio</span> <span class="kn">import</span> <span class="n">ChannelIO</span><span class="p">,</span> <span class="n">ReaderFront</span><span class="p">,</span> <span class="n">WriterFront</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="n">Task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">Task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="n">State</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ChannelIO</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span>
+<span class="n">EdgeMap</span> <span class="o">=</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">PortSpec</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_reraise_exception</span><span class="p">(</span><span class="n">tasks</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Task</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">raiser</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Fetch all exceptions or we get an error</span>
+    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+        <span class="n">exc</span> <span class="o">=</span> <span class="n">task</span><span class="o">.</span><span class="n">exception</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">raiser</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">raiser</span><span class="p">,</span> <span class="n">QueueClosedError</span><span class="p">):</span>
+            <span class="n">raiser</span> <span class="o">=</span> <span class="n">exc</span>
+
+    <span class="k">if</span> <span class="n">exc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">exc</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="IAsyncOperation"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.IAsyncOperation">[docs]</a><span class="k">class</span> <span class="nc">IAsyncOperation</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An asynchronous operation has a name. It has an `initialize` method that is</span>
+<span class="sd">    called once during the initialization phase, and a `execute` method that is</span>
+<span class="sd">    called once during the execution phase of the program.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1">#: The name of the node this operation executes</span>
+
+<div class="viewcode-block" id="IAsyncOperation.initialize"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.IAsyncOperation.initialize">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Connect to the relevant input and output queues from the processor state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            state: the collection of queues of the `AsyncProcessor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>  <span class="c1"># pragma: no cover</span></div>
+
+<div class="viewcode-block" id="IAsyncOperation.execute"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.IAsyncOperation.execute">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start the execution of this operation. Termination of the operation is</span>
+<span class="sd">        dependent on the implementation of this method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>  <span class="c1"># pragma: no cover</span></div></div>
+
+
+<div class="viewcode-block" id="AsyncOperation"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation">[docs]</a><span class="k">class</span> <span class="nc">AsyncOperation</span><span class="p">(</span><span class="n">IAsyncOperation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Common base for streaming operations with the sequence: read inputs,</span>
+<span class="sd">    execute, write outputs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_inmap</span><span class="p">:</span> <span class="n">EdgeMap</span>  <span class="c1">#: Mapping from queue names to input names</span>
+    <span class="n">_outmap</span><span class="p">:</span> <span class="n">EdgeMap</span>  <span class="c1">#: Mapping from queue names to output names</span>
+
+    <span class="c1">#: Mapping from input names to the `ReaderFront` of queues</span>
+    <span class="n">_inq</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ReaderFront</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span>
+
+    <span class="c1">#: Mapping from output names to the `WriterFront` of queues</span>
+    <span class="n">_outq</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">WriterFront</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">inmap</span><span class="p">:</span> <span class="n">EdgeMap</span><span class="p">,</span>
+        <span class="n">outmap</span><span class="p">:</span> <span class="n">EdgeMap</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inmap</span> <span class="o">=</span> <span class="n">inmap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outmap</span> <span class="o">=</span> <span class="n">outmap</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inq</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outq</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="AsyncOperation.initialize"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inq</span> <span class="o">=</span> <span class="p">{</span><span class="n">q</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">reader</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">port</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inmap</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outq</span> <span class="o">=</span> <span class="p">{</span><span class="n">q</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">writer</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">port</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outmap</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+
+<div class="viewcode-block" id="AsyncOperation.terminate"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.terminate">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">terminate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close all input and output queues.</span>
+
+<span class="sd">        This method should not be called directly, but it may be overriden in</span>
+<span class="sd">        subclasses. Termination of a node should be done by returning from</span>
+<span class="sd">        `AsyncOperation.main`, normally or with an exception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">wq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outq</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">await</span> <span class="n">wq</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">rq</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inq</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">await</span> <span class="n">rq</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AsyncOperation.execute"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.execute">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">QueueClosedError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AsyncOperation.read_inputs"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.read_inputs">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">read_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read values from the input queues, waiting when necessary.</span>
+
+<span class="sd">        This method may raise `QueueClosedError`, the default behavior is to</span>
+<span class="sd">        terminate the node, closing all connected queues.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dict with values for each input port.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inq</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
+
+        <span class="c1"># Wait for all inputs</span>
+        <span class="n">aws</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">qname</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inmap</span><span class="p">[</span><span class="n">qname</span><span class="p">]</span><span class="o">.</span><span class="n">make_container</span><span class="p">()))</span>
+            <span class="k">for</span> <span class="n">qname</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inq</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">done</span><span class="p">,</span> <span class="n">pending</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span>
+            <span class="n">aws</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">return_when</span><span class="o">=</span><span class="n">asyncio</span><span class="o">.</span><span class="n">FIRST_EXCEPTION</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Cancel remaining input tasks, only happens on exceptions</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">pending</span><span class="p">:</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+        <span class="n">_reraise_exception</span><span class="p">(</span><span class="n">done</span><span class="p">)</span>
+
+        <span class="c1"># No failures: read all inputs</span>
+        <span class="k">return</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_inmap</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">unbox</span><span class="p">()</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">aws</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+
+<div class="viewcode-block" id="AsyncOperation.write_outputs"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.write_outputs">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">write_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write values to the output queues.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            values: a dict with a value to put to each output port.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">var</span><span class="p">,</span> <span class="n">port</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outmap</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outq</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">seq</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;write </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">port</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">port</span><span class="o">.</span><span class="n">window_size</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">seq</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">port</span><span class="o">.</span><span class="n">window_size</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;expected a sequence output, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="c1"># Note: it is NOT an error if `value` is a sequence of length&gt;1 for</span>
+                <span class="c1"># port.window_size==1, it just means that the single value is a</span>
+                <span class="c1"># sequence.</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">!=</span> <span class="n">port</span><span class="o">.</span><span class="n">window_size</span><span class="p">:</span>
+                    <span class="n">warn</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Unexpected window size returned: got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> expected </span><span class="si">{</span><span class="n">port</span><span class="o">.</span><span class="n">window_size</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+            <span class="k">await</span> <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="AsyncOperation.main"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncOperation.main">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implementation of the operation.  Queue closure, and proper termination</span>
+<span class="sd">        of the operation is handled outside this function. The default response</span>
+<span class="sd">        to queue closure on any input or output is to terminate execution and</span>
+<span class="sd">        close all other queues.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="o">...</span>  <span class="c1"># pragma: no cover</span></div></div>
+
+
+<div class="viewcode-block" id="AsyncTask"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncTask">[docs]</a><span class="k">class</span> <span class="nc">AsyncTask</span><span class="p">(</span><span class="n">AsyncOperation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An operation that performs a function on inputs producing outputs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">runner</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">StatelessRunner</span><span class="p">,</span> <span class="n">StatefulRunner</span><span class="p">],</span>
+        <span class="n">inmap</span><span class="p">:</span> <span class="n">EdgeMap</span><span class="p">,</span>
+        <span class="n">outmap</span><span class="p">:</span> <span class="n">EdgeMap</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">inmap</span><span class="p">,</span> <span class="n">outmap</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runner</span> <span class="o">=</span> <span class="n">runner</span>
+
+<div class="viewcode-block" id="AsyncTask.main"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncTask.main">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runner</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_execute1</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AsyncTask.terminate"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncTask.terminate">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">terminate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runner</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span></div>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_execute1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_inputs</span><span class="p">()</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runner</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_outputs</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AsyncGenerator"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncGenerator">[docs]</a><span class="k">class</span> <span class="nc">AsyncGenerator</span><span class="p">(</span><span class="n">AsyncOperation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An operation for iterators without inputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">runner</span><span class="p">:</span> <span class="n">IteratorRunner</span><span class="p">,</span>
+        <span class="n">outmap</span><span class="p">:</span> <span class="n">EdgeMap</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">{},</span> <span class="n">outmap</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runner</span> <span class="o">=</span> <span class="n">runner</span>
+
+<div class="viewcode-block" id="AsyncGenerator.main"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncGenerator.main">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">rv</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">runner</span><span class="o">.</span><span class="n">execute</span><span class="p">():</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_outputs</span><span class="p">(</span><span class="n">rv</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AsyncProgram"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncProgram">[docs]</a><span class="k">class</span> <span class="nc">AsyncProgram</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A program is the representation of a data flow graph that can be executed by</span>
+<span class="sd">    a `AsyncProcessor`. No run-time entities are created yet, that will be</span>
+<span class="sd">    done during execution of the program.</span>
+
+<span class="sd">    The normal way of creating a AsyncProgram is by calling the</span>
+<span class="sd">    `AsyncProgram.compile` class method.</span>
+
+<span class="sd">    A streaming program specifies a collection of tasks to be executed</span>
+<span class="sd">    simultaneously, and a collection of queues that represent the communication</span>
+<span class="sd">    between the tasks.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tasks: the tasks that represent the actor nodes in the data flow graph.</span>
+<span class="sd">        queues: the communication between the actor nodes in the data flow</span>
+<span class="sd">        graph.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">tasks</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">IAsyncOperation</span><span class="p">],</span>
+        <span class="n">queues</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span> <span class="o">=</span> <span class="n">tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queues</span> <span class="o">=</span> <span class="n">queues</span>
+
+<div class="viewcode-block" id="AsyncProgram.compile"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncProgram.compile">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">compile</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="n">Model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;AsyncProgram&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compile a data flow graph into a streaming program.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            g: the data flow graph to compile.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A program that contains the specification for the execution of the</span>
+<span class="sd">            data flow graph for a `AsyncProcessor`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
+        <span class="n">queues</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;outport&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">dst</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;inport&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">queues</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;maxsize&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queueSize&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)}</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;queue&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="n">tasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">IAsyncOperation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+            <span class="n">runner</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;runner&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">runner</span><span class="p">,</span> <span class="n">StatelessRunner</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">runner</span><span class="p">,</span> <span class="n">StatefulRunner</span>
+            <span class="p">):</span>
+                <span class="n">inmap</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;queue&quot;</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;inport&quot;</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">in_edges</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">outmap</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;queue&quot;</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;outport&quot;</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">out_edges</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">inmap</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;stateless runners require at least 1 input&quot;</span><span class="p">,</span> <span class="n">runner</span>
+                    <span class="p">)</span>
+
+                <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">AsyncTask</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">runner</span><span class="p">,</span> <span class="n">inmap</span><span class="p">,</span> <span class="n">outmap</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">runner</span><span class="p">,</span> <span class="n">IteratorRunner</span><span class="p">):</span>
+                <span class="n">outmap</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;queue&quot;</span><span class="p">]:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;outport&quot;</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">out_edges</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">AsyncGenerator</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">runner</span><span class="p">,</span> <span class="n">outmap</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported runner: </span><span class="si">{</span><span class="n">runner</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">queues</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="AsyncProcessor"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncProcessor">[docs]</a><span class="k">class</span> <span class="nc">AsyncProcessor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A streaming processor can execute a `AsyncProgram`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AsyncProcessor.execute"><a class="viewcode-back" href="../../../../api/flow/processor/asynch/processor/index.html#flow.processor.asynch.processor.AsyncProcessor.execute">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">program</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Model</span><span class="p">,</span> <span class="n">AsyncProgram</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Execute a data flow graph.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            program: a `Model` which will be compiled and executed, or a</span>
+<span class="sd">            `AsyncProgram` which will be executed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">Model</span><span class="p">):</span>
+            <span class="n">program</span> <span class="o">=</span> <span class="n">AsyncProgram</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Task</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queues</span><span class="p">:</span> <span class="n">State</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">ChannelIO</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="n">q</span><span class="p">[</span><span class="s2">&quot;maxsize&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">program</span><span class="o">.</span><span class="n">queues</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">program</span><span class="o">.</span><span class="n">tasks</span><span class="p">:</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">queues</span><span class="p">)</span>
+            <span class="n">task</span><span class="p">:</span> <span class="n">Task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">execute</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+            <span class="n">task</span><span class="o">.</span><span class="n">add_done_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">discard</span><span class="p">)</span>
+
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks</span><span class="p">)</span></div></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Wim Yedema<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

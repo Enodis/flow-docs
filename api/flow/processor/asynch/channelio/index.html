@@ -712,12 +712,12 @@ consumer, the <cite>ReaderFront</cite>.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.ReaderFront">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReaderFront</span></span><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReaderFront</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#ReaderFront"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Front</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Interface for reading a sequence of items from an async <cite>ChannelIO</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.ReaderFront.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront.get" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#ReaderFront.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront.get" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the top N items on the queue, where N is the capacity specified in
 <cite>to</cite>. The number of items retrieved from the queue in this way does not
 need to match the size of the sequence as it was put onto the queue
@@ -755,7 +755,7 @@ exception if the other end has closed the connection.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.ReaderFront.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront.close" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#ReaderFront.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.ReaderFront.close" title="Permalink to this definition">#</a></dt>
 <dd><p>Close the channel, also for the producer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -768,12 +768,12 @@ exception if the other end has closed the connection.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.WriterFront">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WriterFront</span></span><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WriterFront</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#WriterFront"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Front</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Interface for writing a sequence of items to an async <cite>ChannelIO</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.WriterFront.put">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront.put" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#WriterFront.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront.put" title="Permalink to this definition">#</a></dt>
 <dd><p>Append a sequence of <cite>values</cite> to the queue. The values can be retrieved
 using <cite>ReaderFront.get</cite>. Low indices of the sequence are appended first,
 such that the order of the sequence is maintained even if the values are
@@ -805,7 +805,7 @@ modify the values after the sequence has been put onto the queue.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.WriterFront.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront.close" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#WriterFront.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.WriterFront.close" title="Permalink to this definition">#</a></dt>
 <dd><p>Close the channel, also for the consumer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -818,7 +818,7 @@ modify the values after the sequence has been put onto the queue.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelio.ChannelIO">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChannelIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelio.ChannelIO" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChannelIO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelio.html#ChannelIO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelio.ChannelIO" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Base</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>I/O interfaces to access a channel</p>
 <dl class="field-list simple">

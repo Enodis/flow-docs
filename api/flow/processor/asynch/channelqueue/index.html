@@ -764,7 +764,7 @@ title="Print to PDF"
 </table>
 <dl class="py exception">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.QueueClosedError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QueueClosedError</span></span><a class="headerlink" href="#flow.processor.asynch.channelqueue.QueueClosedError" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">QueueClosedError</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#QueueClosedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.QueueClosedError" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
 <p>Exception that will be raised for a waiting <cite>get</cite> or <cite>put</cite> action when the
 other end hangs-up.</p>
@@ -779,7 +779,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.ReaderFront">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReaderFront</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReaderFront</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#ReaderFront"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Front</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Reader/receiver access to a <cite>Queue</cite></p>
 <dl class="field-list simple">
@@ -800,7 +800,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.ReaderFront.fetch">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.fetch" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#ReaderFront.fetch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.fetch" title="Permalink to this definition">#</a></dt>
 <dd><p>Fetch the top item on the queue, but do not remove it.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -820,7 +820,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.ReaderFront.drop">
-<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.drop" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#ReaderFront.drop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.drop" title="Permalink to this definition">#</a></dt>
 <dd><p>Remove the top item from the queue.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -831,7 +831,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.ReaderFront.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.close" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#ReaderFront.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.ReaderFront.close" title="Permalink to this definition">#</a></dt>
 <dd><p>Close the queue. This will raise an exception with a waiting
 <cite>WriterFront</cite>, and it will remove all existing entries from the queue.</p>
 <p>The queue cannot be used by either end after the reader has been closed.</p>
@@ -846,7 +846,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.WriterFront">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WriterFront</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WriterFront</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#WriterFront"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Front</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Writer/sender access to a <cite>Queue</cite></p>
 <dl class="field-list simple">
@@ -867,7 +867,7 @@ set self.__traceback__ to tb and return self.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.WriterFront.put">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront.put" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#WriterFront.put"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront.put" title="Permalink to this definition">#</a></dt>
 <dd><p>Put a single value in the queue.</p>
 <p>This may block if the capacity of the queue is limited. When the queue
 is closed, from either <cite>ReaderFront</cite> or <cite>WriterFront</cite>, this will raise
@@ -884,7 +884,7 @@ is closed, from either <cite>ReaderFront</cite> or <cite>WriterFront</cite>, thi
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.WriterFront.close">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront.close" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#WriterFront.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.WriterFront.close" title="Permalink to this definition">#</a></dt>
 <dd><p>Close the queue. This will raise an exception with a waiting
 <cite>ReaderFront</cite>. The queue is</p>
 <p>The queue cannot be used by this writer afterwards, but it can be used
@@ -901,7 +901,7 @@ values are retrieved will the reader get a <cite>QueueClosedError</cite>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.channelqueue.ChannelQueue">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChannelQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.channelqueue.ChannelQueue" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChannelQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/channelqueue.html#ChannelQueue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.channelqueue.ChannelQueue" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">_Base</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Construct a “safe” queue for a single producer and a single consumer. An
 optional <cite>maxsize</cite> can be passed to limit the capacity of the queue. When

@@ -919,14 +919,14 @@ written piecemeal.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.IAsyncOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IAsyncOperation</span></span><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IAsyncOperation</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#IAsyncOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>An asynchronous operation has a name. It has an <cite>initialize</cite> method that is
 called once during the initialization phase, and a <cite>execute</cite> method that is
 called once during the execution phase of the program.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.IAsyncOperation.initialize">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation.initialize" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#IAsyncOperation.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation.initialize" title="Permalink to this definition">#</a></dt>
 <dd><p>Connect to the relevant input and output queues from the processor state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -940,7 +940,7 @@ called once during the execution phase of the program.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.IAsyncOperation.execute">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#IAsyncOperation.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.IAsyncOperation.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Start the execution of this operation. Termination of the operation is
 dependent on the implementation of this method.</p>
 <dl class="field-list simple">
@@ -954,7 +954,7 @@ dependent on the implementation of this method.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.asynch.processor.IAsyncOperation" title="flow.processor.asynch.processor.IAsyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IAsyncOperation</span></code></a></p>
 <p>Common base for streaming operations with the sequence: read inputs,
 execute, write outputs.</p>
@@ -969,7 +969,7 @@ execute, write outputs.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.initialize" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.initialize" title="Permalink to this definition">#</a></dt>
 <dd><p>Connect to the relevant input and output queues from the processor state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -983,7 +983,7 @@ execute, write outputs.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.terminate">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.terminate" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.terminate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.terminate" title="Permalink to this definition">#</a></dt>
 <dd><p>Close all input and output queues.</p>
 <p>This method should not be called directly, but it may be overriden in
 subclasses. Termination of a node should be done by returning from
@@ -997,7 +997,7 @@ subclasses. Termination of a node should be done by returning from
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.execute">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Start the execution of this operation. Termination of the operation is
 dependent on the implementation of this method.</p>
 <dl class="field-list simple">
@@ -1009,7 +1009,7 @@ dependent on the implementation of this method.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.read_inputs">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.read_inputs" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.read_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.read_inputs" title="Permalink to this definition">#</a></dt>
 <dd><p>Read values from the input queues, waiting when necessary.</p>
 <p>This method may raise <cite>QueueClosedError</cite>, the default behavior is to
 terminate the node, closing all connected queues.</p>
@@ -1025,7 +1025,7 @@ terminate the node, closing all connected queues.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.write_outputs">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.write_outputs" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.write_outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.write_outputs" title="Permalink to this definition">#</a></dt>
 <dd><p>Write values to the output queues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1039,7 +1039,7 @@ terminate the node, closing all connected queues.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncOperation.main">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.main" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncOperation.main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncOperation.main" title="Permalink to this definition">#</a></dt>
 <dd><p>Implementation of the operation.  Queue closure, and proper termination
 of the operation is handled outside this function. The default response
 to queue closure on any input or output is to terminate execution and
@@ -1055,7 +1055,7 @@ close all other queues.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncTask">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.asynch.processor.AsyncOperation" title="flow.processor.asynch.processor.AsyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AsyncOperation</span></code></a></p>
 <p>An operation that performs a function on inputs producing outputs.</p>
 <dl class="field-list simple">
@@ -1070,7 +1070,7 @@ close all other queues.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncTask.main">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask.main" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncTask.main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask.main" title="Permalink to this definition">#</a></dt>
 <dd><p>Implementation of the operation.  Queue closure, and proper termination
 of the operation is handled outside this function. The default response
 to queue closure on any input or output is to terminate execution and
@@ -1084,7 +1084,7 @@ close all other queues.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncTask.terminate">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask.terminate" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">terminate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncTask.terminate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncTask.terminate" title="Permalink to this definition">#</a></dt>
 <dd><p>Close all input and output queues.</p>
 <p>This method should not be called directly, but it may be overriden in
 subclasses. Termination of a node should be done by returning from
@@ -1156,7 +1156,7 @@ terminate the node, closing all connected queues.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncGenerator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncGenerator" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncGenerator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.asynch.processor.AsyncOperation" title="flow.processor.asynch.processor.AsyncOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AsyncOperation</span></code></a></p>
 <p>An operation for iterators without inputs</p>
 <dl class="field-list simple">
@@ -1170,7 +1170,7 @@ terminate the node, closing all connected queues.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncGenerator.main">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncGenerator.main" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncGenerator.main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncGenerator.main" title="Permalink to this definition">#</a></dt>
 <dd><p>Implementation of the operation.  Queue closure, and proper termination
 of the operation is handled outside this function. The default response
 to queue closure on any input or output is to terminate execution and
@@ -1256,7 +1256,7 @@ terminate the node, closing all connected queues.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncProgram">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncProgram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queues</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProgram" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncProgram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queues</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncProgram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProgram" title="Permalink to this definition">#</a></dt>
 <dd><p>A program is the representation of a data flow graph that can be executed by
 a <cite>AsyncProcessor</cite>. No run-time entities are created yet, that will be
 done during execution of the program.</p>
@@ -1276,7 +1276,7 @@ between the tasks.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncProgram.compile">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProgram.compile" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncProgram.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProgram.compile" title="Permalink to this definition">#</a></dt>
 <dd><p>Compile a data flow graph into a streaming program.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1296,11 +1296,11 @@ data flow graph for a <cite>AsyncProcessor</cite>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncProcessor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncProcessor</span></span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProcessor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AsyncProcessor</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProcessor" title="Permalink to this definition">#</a></dt>
 <dd><p>A streaming processor can execute a <cite>AsyncProgram</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.asynch.processor.AsyncProcessor.execute">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProcessor.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/asynch/processor.html#AsyncProcessor.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.asynch.processor.AsyncProcessor.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Execute a data flow graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

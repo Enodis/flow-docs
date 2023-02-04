@@ -731,13 +731,13 @@ title="Print to PDF"
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.valueref.IValueRef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IValueRef</span></span><a class="headerlink" href="#flow.model.valueref.IValueRef" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IValueRef</span></span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#IValueRef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.IValueRef" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Interface for objects that are constructed at an input port for the
 arguments of the actor.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.IValueRef.box">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.IValueRef.box" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#IValueRef.box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.IValueRef.box" title="Permalink to this definition">#</a></dt>
 <dd><p>Set the value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -751,7 +751,7 @@ arguments of the actor.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.IValueRef.extend">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.IValueRef.extend" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#IValueRef.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.IValueRef.extend" title="Permalink to this definition">#</a></dt>
 <dd><p>Add a sequence of values to the actor argument. For most value types
 this will add <cite>values</cite> to the end of the sequence, and potentially raise
 an exception when the capacity has run out.</p>
@@ -767,7 +767,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.IValueRef.unbox">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.IValueRef.unbox" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#IValueRef.unbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.IValueRef.unbox" title="Permalink to this definition">#</a></dt>
 <dd><p>Create the value to be passed as the actor argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -780,7 +780,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.valueref.SingletonRef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SingletonRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.SingletonRef" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SingletonRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#SingletonRef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.SingletonRef" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.valueref.IValueRef" title="flow.model.valueref.IValueRef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IValueRef</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A single value. It requires exactly one value.</p>
 <dl class="field-list simple">
@@ -790,7 +790,7 @@ an exception when the capacity has run out.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.SingletonRef.box">
-<span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.SingletonRef.box" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#SingletonRef.box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.SingletonRef.box" title="Permalink to this definition">#</a></dt>
 <dd><p>Set the value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -804,7 +804,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.SingletonRef.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.SingletonRef.extend" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#SingletonRef.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.SingletonRef.extend" title="Permalink to this definition">#</a></dt>
 <dd><p>Add a sequence of values to the actor argument. For most value types
 this will add <cite>values</cite> to the end of the sequence, and potentially raise
 an exception when the capacity has run out.</p>
@@ -820,7 +820,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.SingletonRef.unbox">
-<span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.SingletonRef.unbox" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#SingletonRef.unbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.SingletonRef.unbox" title="Permalink to this definition">#</a></dt>
 <dd><p>Create the value to be passed as the actor argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -833,7 +833,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.valueref.ListRef">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ListRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.ListRef" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ListRef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capacity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#ListRef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.ListRef" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.valueref.IValueRef" title="flow.model.valueref.IValueRef"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IValueRef</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A list of values.</p>
 <dl class="field-list simple">
@@ -843,7 +843,7 @@ an exception when the capacity has run out.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.ListRef.box">
-<span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.ListRef.box" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#ListRef.box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.ListRef.box" title="Permalink to this definition">#</a></dt>
 <dd><p>Set the value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -857,7 +857,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.ListRef.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.ListRef.extend" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#ListRef.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.ListRef.extend" title="Permalink to this definition">#</a></dt>
 <dd><p>Add a sequence of values to the actor argument. For most value types
 this will add <cite>values</cite> to the end of the sequence, and potentially raise
 an exception when the capacity has run out.</p>
@@ -873,7 +873,7 @@ an exception when the capacity has run out.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.valueref.ListRef.unbox">
-<span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.valueref.ListRef.unbox" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">unbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/valueref.html#ListRef.unbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.valueref.ListRef.unbox" title="Permalink to this definition">#</a></dt>
 <dd><p>Create the value to be passed as the actor argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

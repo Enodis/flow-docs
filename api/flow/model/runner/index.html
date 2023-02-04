@@ -767,7 +767,7 @@ title="Print to PDF"
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.RunnerInit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RunnerInit</span></span><a class="headerlink" href="#flow.model.runner.RunnerInit" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RunnerInit</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#RunnerInit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.RunnerInit" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Data members for a <cite>Runner</cite>.</p>
 <p>The type argument of Builder is the return type of the <cite>function</cite>.</p>
@@ -780,12 +780,12 @@ title="Print to PDF"
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.Runner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Runner</span></span><a class="headerlink" href="#flow.model.runner.Runner" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Runner</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#Runner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.Runner" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.runner.RunnerInit" title="flow.model.runner.RunnerInit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerInit</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>Encapsulation for the implementation of a node.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.runner.Runner.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.runner.Runner.initialize" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#Runner.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.Runner.initialize" title="Permalink to this definition">#</a></dt>
 <dd><p>initialize before the execution of the whole graph starts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -796,7 +796,7 @@ title="Print to PDF"
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.runner.Runner.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.runner.Runner.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#Runner.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.Runner.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Execute the actor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -819,7 +819,7 @@ for each output port.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.StatelessRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatelessRunner</span></span><a class="headerlink" href="#flow.model.runner.StatelessRunner" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatelessRunner</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#StatelessRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.StatelessRunner" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.runner.Runner" title="flow.model.runner.Runner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Runner</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerOutputs</span></code>]</p>
 <p>A runner for stateless actors. These can be implemented by pure functions.</p>
 <dl class="py method">
@@ -858,7 +858,7 @@ for each output port.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.IteratorRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IteratorRunner</span></span><a class="headerlink" href="#flow.model.runner.IteratorRunner" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IteratorRunner</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#IteratorRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.IteratorRunner" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.runner.Runner" title="flow.model.runner.Runner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Runner</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerOutputs</span></code>]]</p>
 <p>A runner for iterator actors. Iterator actors have no input ports, and a
 <strong>single</strong> output port. Each iteration sends new values to the output port.</p>
@@ -898,7 +898,7 @@ for each output port.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.StatefulRunnerInit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatefulRunnerInit</span></span><a class="headerlink" href="#flow.model.runner.StatefulRunnerInit" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatefulRunnerInit</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#StatefulRunnerInit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.StatefulRunnerInit" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.runner.RunnerInit" title="flow.model.runner.RunnerInit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerInit</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>The data members for <cite>StatefulRunner</cite>.
 :param function: The function or method that implements a single execution of the actor.
@@ -908,7 +908,7 @@ for each output port.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.model.runner.StatefulRunner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatefulRunner</span></span><a class="headerlink" href="#flow.model.runner.StatefulRunner" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StatefulRunner</span></span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#StatefulRunner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.StatefulRunner" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.model.runner.Runner" title="flow.model.runner.Runner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Runner</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerOutputs</span></code>], <a class="reference internal" href="#flow.model.runner.StatefulRunnerInit" title="flow.model.runner.StatefulRunnerInit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StatefulRunnerInit</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">RunnerOutputs</span></code>]</p>
 <p>A runner for stateful actors.</p>
 <p>Stateful actors are objects constructed and configured during
@@ -924,7 +924,7 @@ output port.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.runner.StatefulRunner.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.runner.StatefulRunner.initialize" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#StatefulRunner.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.StatefulRunner.initialize" title="Permalink to this definition">#</a></dt>
 <dd><p>initialize before the execution of the whole graph starts.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -935,7 +935,7 @@ output port.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.model.runner.StatefulRunner.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.model.runner.StatefulRunner.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/model/runner.html#StatefulRunner.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.model.runner.StatefulRunner.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Execute the actor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

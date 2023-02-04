@@ -848,13 +848,13 @@ accept the entire input data, and produce all output data at once.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.IOfflineOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IOfflineOperation</span></span><a class="headerlink" href="#flow.processor.offline.processor.IOfflineOperation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IOfflineOperation</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#IOfflineOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.IOfflineOperation" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Interface used by an <cite>OfflineProcessor</cite> to execute the operations of a
 program.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.IOfflineOperation.execute">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.IOfflineOperation.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#IOfflineOperation.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.IOfflineOperation.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Excute this operation on the given <cite>OfflineProcessor</cite> state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -870,7 +870,7 @@ program.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineOperation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.offline.processor.IOfflineOperation" title="flow.processor.offline.processor.IOfflineOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOfflineOperation</span></code></a></p>
 <p>Common structure for an offline operation with separate steps for reading
 inputs, execution, and writing outputs.</p>
@@ -886,7 +886,7 @@ inputs, execution, and writing outputs.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineOperation.ready_to_read">
-<span class="sig-name descname"><span class="pre">ready_to_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.ready_to_read" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ready_to_read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineOperation.ready_to_read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.ready_to_read" title="Permalink to this definition">#</a></dt>
 <dd><p>Check whether there is sufficient input to read all required input
 values.</p>
 <dl class="field-list simple">
@@ -901,7 +901,7 @@ values.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineOperation.read_inputs">
-<span class="sig-name descname"><span class="pre">read_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.read_inputs" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineOperation.read_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.read_inputs" title="Permalink to this definition">#</a></dt>
 <dd><p>Read all inputs from processor state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -918,7 +918,7 @@ values.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineOperation.write_outputs">
-<span class="sig-name descname"><span class="pre">write_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.write_outputs" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">write_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineOperation.write_outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineOperation.write_outputs" title="Permalink to this definition">#</a></dt>
 <dd><p>Write output values to processor state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -951,7 +951,7 @@ values.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineFunction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineFunction" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineFunction" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.offline.processor.OfflineOperation" title="flow.processor.offline.processor.OfflineOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OfflineOperation</span></code></a></p>
 <p>An operation that performs a function on inputs producing outputs.</p>
 <dl class="field-list simple">
@@ -966,7 +966,7 @@ values.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineFunction.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineFunction.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineFunction.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineFunction.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Excute this operation on the given <cite>OfflineProcessor</cite> state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1031,7 +1031,7 @@ values.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineIterator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineIterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineIterator" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineIterator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runner</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outmap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineIterator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineIterator" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#flow.processor.offline.processor.OfflineOperation" title="flow.processor.offline.processor.OfflineOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OfflineOperation</span></code></a></p>
 <p>An operation for iterators without inputs</p>
 <dl class="field-list simple">
@@ -1045,7 +1045,7 @@ values.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineIterator.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineIterator.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineIterator.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineIterator.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Excute this operation on the given <cite>OfflineProcessor</cite> state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1110,7 +1110,7 @@ values.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineProgram">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineProgram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineProgram" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineProgram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineProgram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineProgram" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="#flow.processor.offline.processor.IOfflineOperation" title="flow.processor.offline.processor.IOfflineOperation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOfflineOperation</span></code></a>]</p>
 <p>A program is the representation of a data flow graph that can be executed by
 an <cite>OfflineProcessor</cite>. No run-time entities are created yet, that will be
@@ -1126,7 +1126,7 @@ done during execution of the program.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineProgram.compile">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineProgram.compile" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">g</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineProgram.compile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineProgram.compile" title="Permalink to this definition">#</a></dt>
 <dd><p>Compile a data flow graph into an offline program.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1146,11 +1146,11 @@ data flow graph for an <cite>OfflineProcessor</cite>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineProcessor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineProcessor</span></span><a class="headerlink" href="#flow.processor.offline.processor.OfflineProcessor" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OfflineProcessor</span></span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineProcessor" title="Permalink to this definition">#</a></dt>
 <dd><p>An offline processor can execute an <cite>OfflineProgram</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flow.processor.offline.processor.OfflineProcessor.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flow.processor.offline.processor.OfflineProcessor.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/flow/processor/offline/processor.html#OfflineProcessor.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.processor.offline.processor.OfflineProcessor.execute" title="Permalink to this definition">#</a></dt>
 <dd><p>Execute a data flow graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
