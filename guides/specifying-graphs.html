@@ -586,14 +586,61 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bundling-multiple-streams">
-   Bundling multiple streams
+  <a class="reference internal nav-link" href="#windowing">
+   Windowing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stream-bundles">
+   Stream bundles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manual-bundle">
+   Manual bundle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renaming-channels-in-a-bundle">
+   Renaming channels in a bundle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#node-views">
    Node views
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-ports">
+   Connecting ports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#straighforward-connection">
+     Straighforward connection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#producer-port-selection">
+     Producer port selection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-rebundle">
+     Renaming with rebundle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-a-producer-view">
+     Renaming with a producer view
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-a-consumer-view">
+     Renaming with a consumer view
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -635,14 +682,61 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bundling-multiple-streams">
-   Bundling multiple streams
+  <a class="reference internal nav-link" href="#windowing">
+   Windowing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stream-bundles">
+   Stream bundles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manual-bundle">
+   Manual bundle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renaming-channels-in-a-bundle">
+   Renaming channels in a bundle
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#node-views">
    Node views
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-ports">
+   Connecting ports
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#straighforward-connection">
+     Straighforward connection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#producer-port-selection">
+     Producer port selection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-rebundle">
+     Renaming with rebundle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-a-producer-view">
+     Renaming with a producer view
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#renaming-with-a-consumer-view">
+     Renaming with a consumer view
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -735,25 +829,30 @@ This is optional, though. You can also choose to connect a node later.</p>
 </div>
 </div>
 </div>
+<p>Resulting in this graph:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/specifying-graphs_5_0.svg" src="../_images/specifying-graphs_5_0.svg" /></div>
+</div>
 <p>There are three things to note here.</p>
-<p>First, the node is constructed in a <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">graph()</span></code> context. This creates a new
+<p>First, the nodes are constructed in a <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">graph()</span></code> context. This creates a new
 data flow graph, and makes sure that any newly created node is added there. The
 data flow graph is made available in <code class="docutils literal notranslate"><span class="pre">g</span></code> and can be accessed later for
 inspection or execution.</p>
-<p>Second, the result of the call to <code class="docutils literal notranslate"><span class="pre">gen.values</span></code> is captured in a variable, <code class="docutils literal notranslate"><span class="pre">vs</span></code>.
-Later on we can use this variable to connect the output of the node to other
-nodes.</p>
+<p>Second, the node constructed with the call to <code class="docutils literal notranslate"><span class="pre">gen.values</span></code> is captured in a
+variable, <code class="docutils literal notranslate"><span class="pre">vs</span></code>. Later on we can use this variable to connect the output
+of the node to other nodes.</p>
 <p>Third, the call to <code class="docutils literal notranslate"><span class="pre">out.sequence</span></code> mixes connecting an input with configuration.
 The variable <code class="docutils literal notranslate"><span class="pre">vs</span></code> is passed without a keyword and is thus treated as a streaming
-input, and the variable <code class="docutils literal notranslate"><span class="pre">output</span></code> is passed <em>with</em> keyword and is treated as a
+input, and the variable <code class="docutils literal notranslate"><span class="pre">output</span></code> is passed <em>with</em> keyword and is treated as
 configuration.</p>
 </section>
 <section id="the-streaming-operator">
 <h2>The streaming operator <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code><a class="headerlink" href="#the-streaming-operator" title="Permalink to this headline">#</a></h2>
 <p>It happens very often that one node is only connected to the next which is again
-connected to the next, and so on, making a kind of chain of nodes. Writing such
-chains with nested calls does not help readability. Luckily, you can use the
-streaming operator <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> of C++ fame to do the same thing. Our example becomes:</p>
+connected to the next, and so on, making a kind of chain of nodes. It is
+possible to write such chains by nesting the calls, but a more readable option
+is to use the streaming operator <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>. Our example becomes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flow.lib</span> <span class="kn">import</span> <span class="n">gen</span><span class="p">,</span> <span class="n">out</span>
@@ -766,8 +865,8 @@ streaming operator <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 </div>
-<p>But the strength of this operator is demonstrated better when we take the
-mean over a number of values:</p>
+<p>But the strength of this operator is demonstrated better when create a chain,
+for example by taking the mean over a number of values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flow.lib</span> <span class="kn">import</span> <span class="n">gen</span><span class="p">,</span> <span class="n">arith</span><span class="p">,</span> <span class="n">out</span>
@@ -775,21 +874,41 @@ mean over a number of values:</p>
 <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
-    <span class="n">gen</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">arith</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">windows</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">out</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">out</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+    <span class="n">gen</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">arith</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">windows</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;vs&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">})</span> <span class="o">&gt;&gt;</span> <span class="n">out</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">out</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>The windows configuration specifies that the <em>mean</em> is taken over each sequence
+of 5 values. The next section explores <em>windowing</em> in more details.</p>
 </section>
-<section id="bundling-multiple-streams">
-<h2>Bundling multiple streams<a class="headerlink" href="#bundling-multiple-streams" title="Permalink to this headline">#</a></h2>
-<p>Multiple channels can be grouped into a single object, called a
-<em>bundle</em>. Each channel in a bundle is named, something that is
-used to connect bundles to actors.</p>
+<section id="windowing">
+<h2>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">#</a></h2>
+<p>A channel models a steady stream of values from one node to another. By default,
+<em>Flow</em> assumes a node will produce and consumer a single value at a time from a
+channel. This behavior can be modified with the <code class="docutils literal notranslate"><span class="pre">windows</span></code> node configuration
+variable, a mapping from <em>port name</em> to <em>window size</em>.</p>
+<p>The window size associated with a port specifies the number of items that will
+be read or written from that port with each firing of the node.</p>
+<p>This means that a single channel has two window sizes, one for the producer and
+one for the consumer. When the window sizes of producer and consumer differ the
+firing rate will also differ by necessity. For example, when the producer writes
+2 items and the consumer reads 4 items, the producer will fire 2 times for every
+firing of the consumer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently <em>Flow</em> only supports a stride equal to the window size. A stride
+specification could be used to consume fewer items than the window size from a
+channel making nodes that need historical data, like low-pass filters, possible.</p>
+</div>
+</section>
+<section id="stream-bundles">
+<h2>Stream bundles<a class="headerlink" href="#stream-bundles" title="Permalink to this headline">#</a></h2>
+<p>Multiple channels can be grouped into a single object, called a <em>bundle</em>. Each
+channel in a bundle is named, something that is used to connect bundles to
+actors.</p>
 <p>When you connect a bundle to an actor the port names of the actor will be used
-to look-up channel names in the bundle, and only those will be connected. In
-fact, each node has a bundle for the input ports, and a bundle for the output
-ports.</p>
+to look-up channel names in the bundle, and only those will be connected.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
@@ -814,13 +933,56 @@ speaker. The graph could look like this:</p>
       <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="o">*</span><span class="n">xf</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">sf</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)]</span>
 
 <span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
-    <span class="n">wav</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">audio</span><span class="o">.</span><span class="n">rebalance</span><span class="p">(</span><span class="n">left_right</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">audio</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+    <span class="n">wave</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">audio</span><span class="o">.</span><span class="n">rebalance</span><span class="p">(</span><span class="n">left_right</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">audio</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
 </pre></div>
 </div>
-<!-- TODO: rebalance actually doesn't work: we cannot have the same name for input and output right now! -->
-<p>Assuming the <code class="docutils literal notranslate"><span class="pre">wav.read</span></code> outputs a channel “left” and “right”, this would
+<p>Assuming the <code class="docutils literal notranslate"><span class="pre">wave.read</span></code> outputs a channel “<em>left</em>” and “<em>right</em>”, this would
 automatically connect those outputs to proper ports of the <code class="docutils literal notranslate"><span class="pre">rebalance</span></code> node,
 and the same holds for the channel to <code class="docutils literal notranslate"><span class="pre">audio.play</span></code>.</p>
+</section>
+<section id="manual-bundle">
+<h2>Manual bundle<a class="headerlink" href="#manual-bundle" title="Permalink to this headline">#</a></h2>
+<p>It is possible to create a single bundle from multiple nodes using
+<a class="reference internal" href="../api/flow/lang/composition/index.html#flow.lang.composition.bundle" title="flow.lang.composition.bundle"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flow.lang.composition.bundle</span></code></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flow.lang</span> <span class="kn">import</span> <span class="n">bundle</span>
+<span class="kn">from</span> <span class="nn">flow.lib</span> <span class="kn">import</span> <span class="n">gen</span>
+<span class="kn">from</span> <span class="nn">flow.lib.audio</span> <span class="kn">import</span> <span class="n">wave</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">gen</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">bundle</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">wave</span><span class="o">.</span><span class="n">interleave</span><span class="p">()</span>
+<span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/specifying-graphs_11_0.svg" src="../_images/specifying-graphs_11_0.svg" /></div>
+</div>
+</section>
+<section id="renaming-channels-in-a-bundle">
+<h2>Renaming channels in a bundle<a class="headerlink" href="#renaming-channels-in-a-bundle" title="Permalink to this headline">#</a></h2>
+<p>Sometimes the names of the channels do not match the names of the ports you want
+to connect to, for example when using generic nodes. In those cases you can use
+the convenience function <a class="reference internal" href="../api/flow/lang/composition/index.html#flow.lang.composition.rebundle" title="flow.lang.composition.rebundle"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flow.lang.composition.rebundle</span></code></a> to create a
+bundle with some channels renamed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flow.lang</span> <span class="kn">import</span> <span class="n">rebundle</span>
+<span class="kn">from</span> <span class="nn">flow.lib</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span> <span class="n">arith</span>
+<span class="kn">from</span> <span class="nn">flow.lib.audio</span> <span class="kn">import</span> <span class="n">wave</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">wave</span><span class="o">.</span><span class="n">deinterleave</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">rebundle</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">arith</span><span class="o">.</span><span class="n">add</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+<span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/specifying-graphs_13_0.svg" src="../_images/specifying-graphs_13_0.svg" /></div>
+</div>
 </section>
 <section id="node-views">
 <h2>Node views<a class="headerlink" href="#node-views" title="Permalink to this headline">#</a></h2>
@@ -828,30 +990,95 @@ and the same holds for the channel to <code class="docutils literal notranslate"
 the ones you want to connect. This can be achieved by indexing the node with the
 names of the ports of interest. For example, <code class="docutils literal notranslate"><span class="pre">node[&quot;input1&quot;,</span> <span class="pre">&quot;output2&quot;]</span></code>, would
 return a view on <code class="docutils literal notranslate"><span class="pre">node</span></code> with only the ports <code class="docutils literal notranslate"><span class="pre">input1</span></code> and <code class="docutils literal notranslate"><span class="pre">output2</span></code>.</p>
-<p>At other times it is useful to create a view on a node but with different names for the ports. This is especially useful when combining generic nodes, with specialized ones. This can be achieved with the <code class="docutils literal notranslate"><span class="pre">view</span></code> method of a node.</p>
-<p>Suppose you want to plot the left channel of a WAV file. You could do this in the following ways:</p>
-<ol>
-<li><p>Create a renamed view on <code class="docutils literal notranslate"><span class="pre">plot.line</span></code>:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">wav</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<p>At other times it is useful to create a view on a node but with different names
+for the ports. The <code class="xref py py-func docutils literal notranslate"><span class="pre">view</span></code> method can
+do what the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator can do <em>and</em> rename ports. It accepts a list of port
+names to select, and keyword arguments that select a port, but with another
+name.</p>
+<p>Then there are the
+<code class="xref py py-func docutils literal notranslate"><span class="pre">inputs</span></code> and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">outputs</span></code> methods give
+a view with only the input and output ports. Of course, all of these methods
+are also available on the view itself.</p>
+</section>
+<section id="connecting-ports">
+<h2>Connecting ports<a class="headerlink" href="#connecting-ports" title="Permalink to this headline">#</a></h2>
+<p>So there is a plethora of choices in how to connect one port to another. This
+section will give a short example of each choice and explain how it works.</p>
+<section id="straighforward-connection">
+<h3>Straighforward connection<a class="headerlink" href="#straighforward-connection" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">gen</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This works because the input of <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> is called <code class="docutils literal notranslate"><span class="pre">values</span></code>, and the
-channel is connected by name when there are multiple to choose from.</p>
-</li>
-<li><p>Create a renamed view on <code class="docutils literal notranslate"><span class="pre">wav.read</span></code>:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">wav</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+</div>
+</div>
+<p>The producer <code class="docutils literal notranslate"><span class="pre">gen.values</span></code> has a single output port and the consumer <code class="docutils literal notranslate"><span class="pre">plot.line</span></code>
+has a single input port. Such 1:1 connections will be made regardless of the name.</p>
+</section>
+<section id="producer-port-selection">
+<h3>Producer port selection<a class="headerlink" href="#producer-port-selection" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">wave</span><span class="o">.</span><span class="n">deinterleave</span><span class="p">()[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Same reason as (1).</p>
-</li>
-<li><p>Create a single output view on <code class="docutils literal notranslate"><span class="pre">wav.read</span></code>:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">wav</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;file.wav&quot;</span><span class="p">)[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+</div>
+</div>
+<p>The producer <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> has a two output ports: <em>left</em> and <em>right</em>. The
+consumer <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> has a single input port, <em>values</em>. The <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator
+creates a view on <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> with just a single port: <em>left</em>. The
+connection to the input port of <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> is made because this is also a 1:1
+connection.</p>
+</section>
+<section id="renaming-with-rebundle">
+<h3>Renaming with rebundle<a class="headerlink" href="#renaming-with-rebundle" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">wave</span><span class="o">.</span><span class="n">deinterleave</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">rebundle</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>This works because connecting a single pipeline to a port always works,
-regardless of the name.</p>
-</li>
-</ol>
+</div>
+</div>
+<p>The producer <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> has a two output ports: <em>left</em> and <em>right</em>. The
+consumer <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> has a single input port, <em>values</em>. The <code class="docutils literal notranslate"><span class="pre">rebundle</span></code> call creates
+a new bundle from the outputs of <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> where the channel <code class="docutils literal notranslate"><span class="pre">left</span></code> is
+selected and renamed to <code class="docutils literal notranslate"><span class="pre">values</span></code>.</p>
+</section>
+<section id="renaming-with-a-producer-view">
+<h3>Renaming with a producer view<a class="headerlink" href="#renaming-with-a-producer-view" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">wave</span><span class="o">.</span><span class="n">deinterleave</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The producer <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> has a two output ports: <em>left</em> and <em>right</em>. The
+consumer <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> has a single input port, <em>values</em>. The call to <code class="docutils literal notranslate"><span class="pre">view</span></code>
+creates a view of the producer where the output port <code class="docutils literal notranslate"><span class="pre">left</span></code> is renamed to
+<code class="docutils literal notranslate"><span class="pre">values</span></code>, which nicely matches the input port of <code class="docutils literal notranslate"><span class="pre">plot.line</span></code></p>
+</section>
+<section id="renaming-with-a-consumer-view">
+<h3>Renaming with a consumer view<a class="headerlink" href="#renaming-with-a-consumer-view" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+   <span class="n">wave</span><span class="o">.</span><span class="n">deinterleave</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The producer <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code> has a two output ports: <em>left</em> and <em>right</em>. The
+consumer <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> has a single input port, <em>values</em>. The call to <code class="docutils literal notranslate"><span class="pre">view</span></code>
+creates a view of the consumer where the input port <code class="docutils literal notranslate"><span class="pre">values</span></code> is renamed to
+<code class="docutils literal notranslate"><span class="pre">left</span></code>, which nicely matches the output port of <code class="docutils literal notranslate"><span class="pre">wave.deinterleave</span></code>.</p>
+</section>
 </section>
 </section>
 

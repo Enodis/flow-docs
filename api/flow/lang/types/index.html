@@ -562,6 +562,11 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flow.lang.types.IPort">
+       IPort
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flow.lang.types.IOutput">
        IOutput
       </a>
@@ -637,6 +642,11 @@ title="Print to PDF"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flow.lang.types.IPort">
+       IPort
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flow.lang.types.IOutput">
        IOutput
       </a>
@@ -685,10 +695,13 @@ title="Print to PDF"
 <tr class="row-even"><td><p><a class="reference internal" href="#flow.lang.types.IChannel" title="flow.lang.types.IChannel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IChannel</span></code></a></p></td>
 <td><p>Helper class that provides a standard way to create an ABC using</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flow.lang.types.IOutput" title="flow.lang.types.IOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOutput</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flow.lang.types.IPort" title="flow.lang.types.IPort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPort</span></code></a></p></td>
 <td><p>Helper class that provides a standard way to create an ABC using</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flow.lang.types.INode" title="flow.lang.types.INode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INode</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flow.lang.types.IOutput" title="flow.lang.types.IOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IOutput</span></code></a></p></td>
+<td><p>Helper class that provides a standard way to create an ABC using</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flow.lang.types.INode" title="flow.lang.types.INode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INode</span></code></a></p></td>
 <td><p>Helper class that provides a standard way to create an ABC using</p></td>
 </tr>
 </tbody>
@@ -740,9 +753,25 @@ inheritance.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="flow.lang.types.IPort">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IPort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/lang/types.html#IPort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.lang.types.IPort" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">flow.model.PortSpec</span></code>, <a class="reference internal" href="#flow.lang.types.IPipelinable" title="flow.lang.types.IPipelinable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPipelinable</span></code></a></p>
+<p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> (<a class="reference internal" href="#flow.lang.types.INode" title="flow.lang.types.INode"><em>INode</em></a>) – </p></li>
+<li><p><strong>spec</strong> (<em>flow.model.PortSpec</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="flow.lang.types.IOutput">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/lang/types.html#IOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.lang.types.IOutput" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flow.lang.types.IPipelinable" title="flow.lang.types.IPipelinable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPipelinable</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">IPort</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#flow.lang.types.IPort" title="flow.lang.types.IPort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IPort</span></code></a></p>
 <p>Helper class that provides a standard way to create an ABC using
 inheritance.</p>
 <dl class="field-list simple">

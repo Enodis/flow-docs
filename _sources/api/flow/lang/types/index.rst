@@ -21,6 +21,7 @@ Classes
    flow.lang.types.IEndPoint
    flow.lang.types.IConnectable
    flow.lang.types.IChannel
+   flow.lang.types.IPort
    flow.lang.types.IOutput
    flow.lang.types.INode
 
@@ -72,9 +73,17 @@ Classes
    inheritance.
 
 
+.. py:class:: IPort(node, spec)
+
+   Bases: :py:obj:`flow.model.PortSpec`, :py:obj:`IPipelinable`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+
 .. py:class:: IOutput(node, spec)
 
-   Bases: :py:obj:`IPipelinable`, :py:obj:`IPort`
+   Bases: :py:obj:`IPort`
 
    Helper class that provides a standard way to create an ABC using
    inheritance.

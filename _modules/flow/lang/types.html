@@ -489,6 +489,10 @@ title="Open an issue"
 
 <div class="viewcode-block" id="IPipelinable"><a class="viewcode-back" href="../../../api/flow/lang/types/index.html#flow.lang.types.IPipelinable">[docs]</a><span class="k">class</span> <span class="nc">IPipelinable</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
     <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">is_multi_output</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="o">...</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">feed_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="s2">&quot;IPipelinable&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;IPipelinable&quot;</span><span class="p">:</span>
         <span class="o">...</span>  <span class="c1"># pragma: no cover</span>
 
@@ -517,18 +521,22 @@ title="Open an issue"
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span></div>
 
 
-<span class="k">class</span> <span class="nc">IPort</span><span class="p">(</span><span class="n">PortSpec</span><span class="p">):</span>
+<div class="viewcode-block" id="IPort"><a class="viewcode-back" href="../../../api/flow/lang/types/index.html#flow.lang.types.IPort">[docs]</a><span class="k">class</span> <span class="nc">IPort</span><span class="p">(</span><span class="n">PortSpec</span><span class="p">,</span> <span class="n">IPipelinable</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="s2">&quot;INode&quot;</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="n">PortSpec</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">asdict</span><span class="p">(</span><span class="n">spec</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span></div>
 
 
-<div class="viewcode-block" id="IOutput"><a class="viewcode-back" href="../../../api/flow/lang/types/index.html#flow.lang.types.IOutput">[docs]</a><span class="k">class</span> <span class="nc">IOutput</span><span class="p">(</span><span class="n">IPipelinable</span><span class="p">,</span> <span class="n">IPort</span><span class="p">):</span>
+<div class="viewcode-block" id="IOutput"><a class="viewcode-back" href="../../../api/flow/lang/types/index.html#flow.lang.types.IOutput">[docs]</a><span class="k">class</span> <span class="nc">IOutput</span><span class="p">(</span><span class="n">IPort</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="s2">&quot;INode&quot;</span><span class="p">,</span> <span class="n">spec</span><span class="p">:</span> <span class="n">PortSpec</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">spec</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;IChannel&quot;</span><span class="p">]</span></div>
+    <span class="n">outputs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;IChannel&quot;</span><span class="p">]</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="fm">__rshift__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">IPipelinable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IEndPoint</span><span class="p">:</span>
+        <span class="o">...</span></div>
 
 
 <div class="viewcode-block" id="INode"><a class="viewcode-back" href="../../../api/flow/lang/types/index.html#flow.lang.types.INode">[docs]</a><span class="k">class</span> <span class="nc">INode</span><span class="p">(</span><span class="n">IPipelinable</span><span class="p">):</span>

@@ -93,28 +93,38 @@ with graph() as g:
     out.sequence(vs, out=output)
 ```
 
+Resulting in this graph:
+
+```{code-cell}
+---
+tags: [remove-input]
+---
+g
+```
+
 There are three things to note here. 
 
-First, the node is constructed in a `with graph()` context. This creates a new
+First, the nodes are constructed in a `with graph()` context. This creates a new
 data flow graph, and makes sure that any newly created node is added there. The
 data flow graph is made available in `g` and can be accessed later for
 inspection or execution.
 
-Second, the result of the call to `gen.values` is captured in a variable, `vs`.
-Later on we can use this variable to connect the output of the node to other
-nodes.
+Second, the node constructed with the call to `gen.values` is captured in a
+variable, `vs`. Later on we can use this variable to connect the output
+of the node to other nodes.
 
 Third, the call to `out.sequence` mixes connecting an input with configuration.
 The variable `vs` is passed without a keyword and is thus treated as a streaming
-input, and the variable `output` is passed *with* keyword and is treated as a
+input, and the variable `output` is passed *with* keyword and is treated as
 configuration.
+
 
 ## The streaming operator `>>`
 
 It happens very often that one node is only connected to the next which is again
-connected to the next, and so on, making a kind of chain of nodes. Writing such
-chains with nested calls does not help readability. Luckily, you can use the
-streaming operator `>>` of C++ fame to do the same thing. Our example becomes:
+connected to the next, and so on, making a kind of chain of nodes. It is
+possible to write such chains by nesting the calls, but a more readable option
+is to use the streaming operator `>>`. Our example becomes:
 
 ```{code-cell}
 from flow.lib import gen, out
@@ -125,8 +135,8 @@ with graph() as g:
     gen.values(values=range(10)) >> out.sequence(out=output)
 ```
 
-But the strength of this operator is demonstrated better when we take the
-mean over a number of values:
+But the strength of this operator is demonstrated better when create a chain,
+for example by taking the mean over a number of values:
 
 ```{code-cell}
 from flow.lib import gen, arith, out
@@ -134,19 +144,42 @@ from flow.lib import gen, arith, out
 output = []
 
 with graph() as g:
-    gen.values(values=range(10)) >> arith.mean().windows(5) >> out.sequence(out=output)
+    gen.values(values=range(10)) >> arith.mean(windows={"vs":5}) >> out.sequence(out=output)
 ```
 
-## Bundling multiple streams
+The windows configuration specifies that the *mean* is taken over each sequence
+of 5 values. The next section explores *windowing* in more details.
 
-Multiple channels can be grouped into a single object, called a
-*bundle*. Each channel in a bundle is named, something that is
-used to connect bundles to actors.
+## Windowing
+
+A channel models a steady stream of values from one node to another. By default,
+*Flow* assumes a node will produce and consumer a single value at a time from a
+channel. This behavior can be modified with the `windows` node configuration
+variable, a mapping from *port name* to *window size*.
+
+The window size associated with a port specifies the number of items that will
+be read or written from that port with each firing of the node. 
+
+This means that a single channel has two window sizes, one for the producer and
+one for the consumer. When the window sizes of producer and consumer differ the
+firing rate will also differ by necessity. For example, when the producer writes
+2 items and the consumer reads 4 items, the producer will fire 2 times for every
+firing of the consumer.
+
+```{note}
+Currently *Flow* only supports a stride equal to the window size. A stride
+specification could be used to consume fewer items than the window size from a 
+channel making nodes that need historical data, like low-pass filters, possible.
+```
+
+## Stream bundles
+
+Multiple channels can be grouped into a single object, called a *bundle*. Each
+channel in a bundle is named, something that is used to connect bundles to
+actors.
 
 When you connect a bundle to an actor the port names of the actor will be used
-to look-up channel names in the bundle, and only those will be connected. In
-fact, each node has a bundle for the input ports, and a bundle for the output
-ports.
+to look-up channel names in the bundle, and only those will be connected.
 
 ````{margin}
 ```{note}
@@ -173,14 +206,46 @@ class rebalance:
       self.right = [l*xf + r*sf for l, r in zip(left, right)]
 
 with graph() as g:
-    wav.read("file.wav") >> audio.rebalance(left_right=0.8) >> audio.play()
+    wave.read("file.wav") >> audio.rebalance(left_right=0.8) >> audio.play()
 ```
 
-<!-- TODO: rebalance actually doesn't work: we cannot have the same name for input and output right now! -->
-
-Assuming the `wav.read` outputs a channel "left" and "right", this would
+Assuming the `wave.read` outputs a channel "*left*" and "*right*", this would
 automatically connect those outputs to proper ports of the `rebalance` node,
 and the same holds for the channel to `audio.play`.
+
+## Manual bundle
+
+It is possible to create a single bundle from multiple nodes using
+{py:mod}`flow.lang.composition.bundle`:
+
+```{code-cell}
+from flow.lang import bundle
+from flow.lib import gen
+from flow.lib.audio import wave
+
+with graph() as g:
+    l = gen.values(values=range(10))
+    r = gen.values(values=range(10))
+    bundle(left=l, right=r) >> wave.interleave()
+g
+```
+
+## Renaming channels in a bundle
+
+Sometimes the names of the channels do not match the names of the ports you want
+to connect to, for example when using generic nodes. In those cases you can use
+the convenience function {py:mod}`flow.lang.composition.rebundle` to create a
+bundle with some channels renamed: 
+
+```{code-cell}
+from flow.lang import rebundle
+from flow.lib import plot, arith
+from flow.lib.audio import wave
+
+with graph() as g:
+   wave.deinterleave() >> rebundle(a="left", b="right") >> arith.add() >> plot.line()
+g
+```
 
 ## Node views
 
@@ -189,29 +254,78 @@ the ones you want to connect. This can be achieved by indexing the node with the
 names of the ports of interest. For example, `node["input1", "output2"]`, would
 return a view on `node` with only the ports `input1` and `output2`.
 
-At other times it is useful to create a view on a node but with different names for the ports. This is especially useful when combining generic nodes, with specialized ones. This can be achieved with the `view` method of a node. 
+At other times it is useful to create a view on a node but with different names
+for the ports. The {py:func}`view <flow.lang.composition.Node.view>` method can
+do what the `[]` operator can do *and* rename ports. It accepts a list of port
+names to select, and keyword arguments that select a port, but with another
+name.
 
-Suppose you want to plot the left channel of a WAV file. You could do this in the following ways:
+Then there are the
+{py:func}`inputs <flow.lang.composition.Node.inputs>` and
+{py:func}`outputs <flow.lang.composition.Node.outputs>` methods give
+a view with only the input and output ports. Of course, all of these methods 
+are also available on the view itself.
 
-1. Create a renamed view on `plot.line`:  
-   ```py
-   wav.read("file.wav") >> plot.line().view(values="left")
-   ``` 
-   
-   This works because the input of `plot.line` is called `values`, and the
-   channel is connected by name when there are multiple to choose from.
+## Connecting ports
 
-2. Create a renamed view on `wav.read`: 
-   ```py
-   wav.read("file.wav").view(left="values") >> plot.line()
-   ```
+So there is a plethora of choices in how to connect one port to another. This
+section will give a short example of each choice and explain how it works.
 
-   Same reason as (1).
-   
-3. Create a single output view on `wav.read`: 
-   ```py
-   wav.read("file.wav")["left"] >> plot.line()
-   ```
+### Straighforward connection
 
-   This works because connecting a single pipeline to a port always works,
-   regardless of the name.
+```{code-cell}
+with graph() as g:
+   gen.values(values=range(20)) >> plot.line().view()
+``` 
+
+The producer `gen.values` has a single output port and the consumer `plot.line`
+has a single input port. Such 1:1 connections will be made regardless of the name.
+
+### Producer port selection
+
+```{code-cell}
+with graph() as g:
+   wave.deinterleave()["left"] >> plot.line()
+```
+
+The producer `wave.deinterleave` has a two output ports: *left* and *right*. The
+consumer `plot.line` has a single input port, *values*. The `[]` operator
+creates a view on `wave.deinterleave` with just a single port: *left*. The
+connection to the input port of `plot.line` is made because this is also a 1:1
+connection.
+
+### Renaming with rebundle
+
+```{code-cell}
+with graph() as g:
+   wave.deinterleave() >> rebundle(values="left") >> plot.line()
+```
+
+The producer `wave.deinterleave` has a two output ports: *left* and *right*. The
+consumer `plot.line` has a single input port, *values*. The `rebundle` call creates
+a new bundle from the outputs of `wave.deinterleave` where the channel `left` is
+selected and renamed to `values`.
+
+### Renaming with a producer view
+
+```{code-cell}
+with graph() as g:
+   wave.deinterleave().view(left="values") >> plot.line()
+```
+
+The producer `wave.deinterleave` has a two output ports: *left* and *right*. The
+consumer `plot.line` has a single input port, *values*. The call to `view`
+creates a view of the producer where the output port `left` is renamed to
+`values`, which nicely matches the input port of `plot.line`
+
+### Renaming with a consumer view
+
+```{code-cell}
+with graph() as g:
+   wave.deinterleave() >> plot.line().view(values="left")
+```
+
+The producer `wave.deinterleave` has a two output ports: *left* and *right*. The
+consumer `plot.line` has a single input port, *values*. The call to `view`
+creates a view of the consumer where the input port `values` is renamed to
+`left`, which nicely matches the output port of `wave.deinterleave`.

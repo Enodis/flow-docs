@@ -28,6 +28,7 @@ Functions
 
    flow.lang.composition.graph
    flow.lang.composition.bundle
+   flow.lang.composition.rebundle
 
 
 
@@ -50,5 +51,10 @@ Functions
    Create a bundle from a number of pipelines.
 
    A bundle is a pipelinable collection of named pipelines.
+
+
+.. py:function:: rebundle(**kwargs)
+
+   Rebundle members of a bundle to other names.
 
 

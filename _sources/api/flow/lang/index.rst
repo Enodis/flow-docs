@@ -47,6 +47,7 @@ Functions
 
    flow.lang.bundle
    flow.lang.graph
+   flow.lang.rebundle
    flow.lang.node
    flow.lang.nodedef
 
@@ -58,6 +59,7 @@ Attributes
 .. autoapisummary::
 
    flow.lang.Namespace
+
 
 
 

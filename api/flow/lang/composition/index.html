@@ -549,6 +549,11 @@ title="Print to PDF"
        bundle
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flow.lang.composition.rebundle">
+       rebundle
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -602,6 +607,11 @@ title="Print to PDF"
        bundle
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flow.lang.composition.rebundle">
+       rebundle
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -649,6 +659,9 @@ title="Print to PDF"
 <tr class="row-even"><td><p><a class="reference internal" href="#flow.lang.composition.bundle" title="flow.lang.composition.bundle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bundle</span></code></a>(**kwargs)</p></td>
 <td><p>Create a bundle from a number of pipelines.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flow.lang.composition.rebundle" title="flow.lang.composition.rebundle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rebundle</span></code></a>(**kwargs)</p></td>
+<td><p>Rebundle members of a bundle to other names.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -672,7 +685,7 @@ active in the <cite>with</cite> context.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>head</strong> (<a class="reference internal" href="../types/index.html#flow.lang.types.IEndPoint" title="flow.lang.types.IEndPoint"><em>flow.lang.types.IEndPoint</em></a>) – </p></li>
+<li><p><strong>head</strong> (<a class="reference internal" href="../types/index.html#flow.lang.types.IPipelinable" title="flow.lang.types.IPipelinable"><em>flow.lang.types.IPipelinable</em></a>) – </p></li>
 <li><p><strong>tail</strong> (<a class="reference internal" href="../types/index.html#flow.lang.types.IPipelinable" title="flow.lang.types.IPipelinable"><em>flow.lang.types.IPipelinable</em></a>) – </p></li>
 </ul>
 </dd>
@@ -690,6 +703,20 @@ active in the <cite>with</cite> context.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>Bundle</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="flow.lang.composition.rebundle">
+<span class="sig-name descname"><span class="pre">rebundle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/flow/lang/composition.html#rebundle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#flow.lang.composition.rebundle" title="Permalink to this definition">#</a></dt>
+<dd><p>Rebundle members of a bundle to other names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Rebundle</p>
 </dd>
 </dl>
 </dd></dl>
