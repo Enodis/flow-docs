@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Examples &#8212; Flow</title>
+    <title>Windowing &#8212; Flow</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -89,8 +89,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Design" href="../design/index.html" />
-    <link rel="prev" title="Windowing" href="../guides/windowing.html" />
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Specifying graphs" href="specifying-graphs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -146,40 +146,40 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../guides/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    User guides
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../guides/installing.html">
+    <a class="reference internal" href="installing.html">
      Installing flow
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../guides/writing-nodes.html">
+    <a class="reference internal" href="writing-nodes.html">
      Writing Flow Nodes
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../guides/specifying-graphs.html">
+    <a class="reference internal" href="specifying-graphs.html">
      Specifying graphs
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../guides/windowing.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Windowing
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../examples/index.html">
    Examples
   </a>
  </li>
@@ -437,6 +437,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/enodis/python-flow/master?urlpath=tree/doc/guides/windowing.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -476,7 +505,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/enodis/python-flow/issues/new?title=Issue%20on%20page%20%2Fexamples/index.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/enodis/python-flow/issues/new?title=Issue%20on%20page%20%2Fguides/windowing.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -504,7 +533,24 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/examples/index.md"
+        <a href="../_sources/guides/windowing.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../_sources/guides/windowing.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -541,23 +587,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specifying-window-size">
+   Specifying window size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-window-size-in-a-node-implementation">
+   Using window size in a node implementation
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Examples</h1>
+                <h1>Windowing</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specifying-window-size">
+   Specifying window size
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-window-size-in-a-node-implementation">
+   Using window size in a node implementation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -565,8 +658,73 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="windowing">
+<h1>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">#</a></h1>
+<div class="admonition-prerequisites admonition">
+<p class="admonition-title">Prerequisites</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="installing.html"><span class="doc std std-doc">You have installed Flow</span></a></p></li>
+<li><p><a class="reference internal" href="specifying-graphs.html"><span class="doc std std-doc">You can specify graphs</span></a></p></li>
+<li><p>Optional: <a class="reference internal" href="writing-nodes.html"><span class="doc std std-doc">You can create nodes</span></a></p></li>
+</ul>
+</div>
+<p>In this guide you will learn how to specify, with each firing, the number of
+input values a node must consume on an input port, and the number of output
+values a node will produce on an output port. The term we use for “the number of
+values” is <em>window size</em>, where the <em>window</em> is the sequence of value a node
+will “see” at a firing.</p>
+<p>The first part will cover how to specify window sizes when you specify a graph.
+The second part will cover how to use window size when you write your own nodes.</p>
+<section id="specifying-window-size">
+<h2>Specifying window size<a class="headerlink" href="#specifying-window-size" title="Permalink to this headline">#</a></h2>
+<p>The window size can be specified for input ports and output ports. For an input port it signifies the number of values that will be consumed from the channel and passed to the node with each firing. For an output port it signifies the number of values that will be produced on the connected channel with each firing.</p>
+<p>In the example below we read a soundbite from a file and stream it to an audio playback node. Without any window specification this would be done sample-by-sample, each firing producing and consuming 1 sample, leading to a lot of overhead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flow.lang</span> <span class="kn">import</span> <span class="n">graph</span>
+<span class="kn">from</span> <span class="nn">flow.lib</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">flow.lib.audio</span> <span class="kn">import</span> <span class="n">wave</span>
+
+<span class="k">with</span> <span class="n">graph</span><span class="p">()</span> <span class="k">as</span> <span class="n">wp</span><span class="p">:</span>
+    <span class="n">wave</span><span class="o">.</span><span class="n">read_wav</span><span class="p">(</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;StarWars3.wav&quot;</span><span class="p">,</span> 
+        <span class="n">windows</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;out&quot;</span><span class="p">:</span><span class="mi">256</span><span class="p">}</span>
+    <span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+        <span class="n">ymin</span><span class="o">=-</span><span class="mi">32768</span><span class="p">,</span> 
+        <span class="n">ymax</span><span class="o">=</span><span class="mi">32767</span><span class="p">,</span> 
+        <span class="n">maxt</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+        <span class="n">windows</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;values&quot;</span><span class="p">:</span><span class="mi">32</span><span class="p">}</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, both node specification include a configuration for <code class="docutils literal notranslate"><span class="pre">windows</span></code>. This configuration variable is recognized and interpreted by Flow. It expects a dictionary where the keys are port names, either input or output ports, and the values are the sizes of the windows.</p>
+<p>In this example <code class="docutils literal notranslate"><span class="pre">wave.read_wav</span></code> produces 256 samples with each firing, and <code class="docutils literal notranslate"><span class="pre">plot.line</span></code> consumes 32 samples with each firing. As a result, each firing of <code class="docutils literal notranslate"><span class="pre">wave.read_wav</span></code> must result in 8 firings of <code class="docutils literal notranslate"><span class="pre">plot.line</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Depending on the node implementation, not all combinations of window sizes are allowed. Currently, a bad configuration of window size will at best lead to an exception.</p>
+</div>
+</section>
+<section id="using-window-size-in-a-node-implementation">
+<h2>Using window size in a node implementation<a class="headerlink" href="#using-window-size-in-a-node-implementation" title="Permalink to this headline">#</a></h2>
+<p>When implementing a node it can be useful to have the window size that is expected on an output port. For this purpose the node can request the configuration argument <code class="docutils literal notranslate"><span class="pre">windows</span></code>.</p>
+<p>If one of the configuration keyword arguments of a node is called <code class="docutils literal notranslate"><span class="pre">windows</span></code>, flow will pass the final window size configuration mapping in this argument.</p>
+<p>Take the node <code class="docutils literal notranslate"><span class="pre">values</span></code> from <code class="xref py py-mod docutils literal notranslate"><span class="pre">flow.lib.gen</span></code>. It streams values from a fixed sequence, configurable with the <code class="docutils literal notranslate"><span class="pre">values</span></code> argument, to its output. The window size determines how many values are passed with each firing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">_values</span><span class="p">(</span>
+<span class="linenos"> 2</span>    <span class="o">*</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">windows</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stream items from `values` in part as indicated by the `windows[&quot;out&quot;]`&quot;&quot;&quot;</span>
+<span class="linenos"> 5</span>    <span class="n">part</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 6</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+<span class="linenos"> 7</span>        <span class="n">part</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos"> 8</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="o">==</span> <span class="n">windows</span><span class="p">[</span><span class="s2">&quot;out&quot;</span><span class="p">]:</span>
+<span class="linenos"> 9</span>            <span class="k">yield</span> <span class="n">part</span>
+<span class="linenos">10</span>            <span class="n">part</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>The output port is called <code class="docutils literal notranslate"><span class="pre">out</span></code>, the default output port name if none can be deduced from the definition. In this implementation the <code class="docutils literal notranslate"><span class="pre">windows</span></code> mapping used to produce the correct number of values on the output.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -582,7 +740,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./examples"
+            path: "./guides"
         },
         predefinedOutput: true
     }
@@ -596,17 +754,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../guides/windowing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="specifying-graphs.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Windowing</p>
+            <p class="prev-next-title">Specifying graphs</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../design/index.html" title="next page">
+    <a class='right-next' id="next-link" href="../examples/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Design</p>
+        <p class="prev-next-title">Examples</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

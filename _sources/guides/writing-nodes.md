@@ -107,7 +107,7 @@ class DivMod:
 This will add `DivMod` as a node constructor to the `Namespace` class. It will
 need two inputs, and it will, simultaneously, produce two outputs. 
 
-## Stateful Nodes
+## Stateful nodes
 
 It is also possible to create nodes with *state*. The output of such nodes does
 not solely depend on the inputs, but also on the internal state. Nodes like this

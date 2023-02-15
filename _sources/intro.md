@@ -32,4 +32,11 @@ More complete examples that show what you can do with Flow.
 API and design documentation.
 :::
 
+:::{grid-item-card} Contributing
+:link: contributing
+:link-type: doc
+
+How to contribute to the development of Flow.
+:::
+
 ::::
